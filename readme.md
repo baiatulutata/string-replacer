@@ -68,7 +68,7 @@ You can extend it using the `sr_replace_strings()` function for custom replaceme
 
 Created by **Ionut Baldazar**  
 Email: `contact@yourdomain.com` (replace with your actual contact)  
-GitHub: [Add GitHub link if applicable]
+GitHub: https://github.com/baiatulutata/
 
 ---
 
