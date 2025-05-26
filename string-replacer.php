@@ -5,6 +5,7 @@
  * Description: Replace visible and email strings via admin.
  * Version: 1.2
  * Author: Ionut Baldazar
+ * Author URI: https://github.com/baiatulutata
  * Author URI: https://woomag.ro/
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -16,7 +17,10 @@ add_action('admin_menu', function () {
 });
 
 add_action('admin_init', function () {
-    register_setting('sr_settings_group', 'sr_replacements_array');
+    register_setting('sr_settings_group', 'sr_replacements_array', [
+        'type' => 'array',
+        'sanitize_callback' => 'sr_sanitize_replacements',
+    ]);
 });
 
 function sr_settings_page() {
@@ -51,10 +55,6 @@ function sr_settings_page() {
         </form>
     </div>
 
-    <!-- Include jQuery and DataTables -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
 
     <script>
         jQuery(document).ready(function($) {
@@ -145,5 +145,49 @@ add_filter('wp_mail', function($mail_args) {
 
     return $mail_args;
 });
+function sr_enqueue_admin_assets($hook) {
+    if ($hook !== 'settings_page_sr-settings') {
+        return;
+    }
+
+    // Local paths to DataTables assets
+    wp_enqueue_style(
+        'datatables-css',
+        plugins_url('assets/css/jquery.dataTables.min.css', __FILE__),
+        [],
+        '1.13.6'
+    );
+
+    wp_enqueue_script('jquery');
+
+    wp_enqueue_script(
+        'datatables-js',
+        plugins_url('assets/js/jquery.dataTables.min.js', __FILE__),
+        ['jquery'],
+        '1.13.6',
+        true
+    );
+}
+add_action('admin_enqueue_scripts', 'sr_enqueue_admin_assets');
+
+function sr_sanitize_replacements($input) {
+    $sanitized = [];
+
+    if (is_array($input)) {
+        foreach ($input as $row) {
+            $from = isset($row['from']) ? sanitize_text_field($row['from']) : '';
+            $to   = isset($row['to'])   ? sanitize_text_field($row['to'])   : '';
+
+            // Only include rows with non-empty 'from'
+            if ($from !== '') {
+                $sanitized[] = ['from' => $from, 'to' => $to];
+            }
+        }
+    }
+
+    return $sanitized;
+}
+
+
 
 ?>
