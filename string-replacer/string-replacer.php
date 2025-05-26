@@ -1,10 +1,16 @@
 <?php
 /**
  * Plugin Name: String Replacer
- * Description: Replace visible strings in post titles, content, and footer via an easy-to-use grid.
+ * Plugin URI: https://github.com/baiatulutata/string-replacer
+ * Description: Replace visible and email strings via admin.
  * Version: 1.2
  * Author: Ionut Baldazar
+ * Author URI: https://github.com/baiatulutata
+ * Author URI: https://woomag.ro/
+ * License: GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
+
 
 add_action('admin_menu', function () {
     add_options_page('String Replacer', 'String Replacer', 'manage_options', 'string-replacer', 'sr_settings_page');
