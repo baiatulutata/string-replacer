@@ -3,14 +3,19 @@
  * Plugin Name: String Replacer
  * Plugin URI: https://github.com/baiatulutata/string-replacer
  * Description: Replace visible and email strings via admin.
- * Version: 1.2
+ * Version: 1.3
  * Author: Ionut Baldazar
  * Author URI: https://github.com/baiatulutata
  * Author URI: https://woomag.ro/
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Requires at least: 7.2
+ * Requires PHP: 7.4
+ * Requires at least: 5.8
+ * Tested up to: 6.5
  */
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 add_action('admin_menu', function () {
     add_options_page('String Replacer', 'String Replacer', 'manage_options', 'string-replacer', 'sr_settings_page');
@@ -59,7 +64,7 @@ function sr_settings_page() {
     <script>
         jQuery(document).ready(function($) {
             const table = $('#replacements-table').DataTable({
-                paging: true,
+                paging: false,
                 searching: true,
                 ordering: false,
                 columnDefs: [{
@@ -155,7 +160,7 @@ function sr_enqueue_admin_assets($hook) {
         'datatables-css',
         plugins_url('assets/css/jquery.dataTables.min.css', __FILE__),
         [],
-        '1.13.6'
+        '2.3.1'
     );
 
     wp_enqueue_script('jquery');
@@ -164,7 +169,7 @@ function sr_enqueue_admin_assets($hook) {
         'datatables-js',
         plugins_url('assets/js/jquery.dataTables.min.js', __FILE__),
         ['jquery'],
-        '1.13.6',
+        '2.3.1',
         true
     );
 }

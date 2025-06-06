@@ -4,7 +4,7 @@ Tags: string replace, translation, email filter, content filter, admin tool
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.2
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Plugin URI: https://github.com/baiatulutata/string-replacer
@@ -68,6 +68,9 @@ Yes, any output that uses `the_title` or `the_content` filters, or appears in fi
 No, it only replaces visible strings rendered in HTML or passed through known filters.
 
 == Changelog ==
+= 1.3 =
+* Fixed Out of Date Libraries
+* Allowing Direct File Access to plugin files
 
 = 1.2 =
 * Added `wp_mail` support for replacing strings in emails
