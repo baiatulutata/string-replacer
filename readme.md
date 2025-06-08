@@ -1,11 +1,11 @@
 # String Replacer
 
-**Contributors:** ionutbaldazar  
+**Contributors:** baiatulutata  
 **Tags:** string replace, translation, email filter, content filter, admin tool  
 **Requires at least:** 5.0  
 **Tested up to:** 6.8 
 **Requires PHP:** 7.2  
-**Stable tag:** 1.3  
+**Stable tag:** 1.4  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,7 +60,7 @@ This plugin uses:
 - `template_redirect` output buffer to catch footer/sidebar strings
 - `wp_mail` filter to modify outgoing email subject, body, and headers
 
-You can extend it using the `sr_replace_strings()` function for custom replacements anywhere.
+You can extend it using the `STRIRE_replace_strings()` function for custom replacements anywhere.
 
 ---
 

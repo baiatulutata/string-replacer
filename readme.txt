@@ -1,10 +1,10 @@
 === String Replacer ===
-Contributors: ionutbaldazar
+Contributors: baiatulutata
 Tags: string replace, translation, email filter, content filter, admin tool
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.2
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Plugin URI: https://github.com/baiatulutata/string-replacer
@@ -57,7 +57,7 @@ This plugin hooks into:
 - `template_redirect` output buffering
 - `wp_mail` filter (subject, message, and headers)
 
-Developers can use `sr_replace_strings( $text )` to apply replacements manually in custom contexts.
+Developers can use `STRIRE_replace_strings( $text )` to apply replacements manually in custom contexts.
 
 == Frequently Asked Questions ==
 
