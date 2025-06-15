@@ -67,7 +67,7 @@ You can extend it using the `STRIRE_replace_strings()` function for custom repla
 ## Developer
 
 Created by **Ionut Baldazar**  
-Email: `contact@yourdomain.com` (replace with your actual contact)  
+Email:  contact@woomag.ro 
 GitHub: https://github.com/baiatulutata/
 
 ---
